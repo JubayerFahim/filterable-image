@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filteraable image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Filterable Gallery</h1>
+        <div class="menu">
+            <a href="#" class="btn" data-filter="all">All</a>
+            <a href="#" class="btn" data-filter="logo">Logo Design</a>
+            <a href="#" class="btn" data-filter="Web">Web Design</a>
+            <a href="#" class="btn" data-filter="moibile">Mobile Apps</a>
+        </div>
+
+        <div class="box" id="soter-items">
+             <div class="store-items logo">
+                <img src="img/logo-1.png" class="store-img">
+             </div>
+             <div class="store-items Web">
+                <img src="img/web-1.png" class="store-img">
+             </div>
+             <div class="store-items moibile">
+                <img src="img/mobile-1.png" class="store-img">
+             </div>
+             <div class="store-items logo">
+                <img src="img/logo-2.png" class="store-img">
+             </div>
+             <div class="store-items Web">
+                <img src="img/web-2.png" class="store-img">
+             </div>
+             <div class="store-items moibile">
+                <img src="img/mobile-2.png" class="store-img">
+             </div>
+        </div>
+
+    </div>
+  <script>
+ (function(){
+    let buttons = document.querySelectorAll(".btn")
+    let StoreImages = document.querySelectorAll(".store-items")
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault()
+            let filter = e.target.dataset.filter
+
+            StoreImages.forEach((item) =>{
+                if (filter === 'all') {
+                    item.style.display = "block"   
+                }else{
+                    if(item.classList.contains(filter)){
+                        item.style.display = "block"   
+                    }else{
+                        item.style.display = "none"       
+                    }
+                }
+            }) 
+        })
+    })
+ })();
+  </script>
+</body>
+</html>
